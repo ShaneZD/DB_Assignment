@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+
 {% block title %}Our Products - Rigster{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/rigstyle.css') }}">
 {% endblock %}
@@ -11,6 +13,7 @@
         <p>Explore our wide range of high-quality components and peripherals</p>
     </div>
 </section>
+<!-- Hero section with a title and description -->
 
 <section class="product-catalog">
     <div class="container">
@@ -18,9 +21,12 @@
             <div class="catalog-sidebar">
                 <h2>Filter Products</h2>
                 <form id="filter-form">
+                    <!-- Form for filtering products by different criteria -->
+                    
                     <div class="filter-group">
                         <h3>Category</h3>
                         <div class="checkbox-group">
+                            <!-- Category filters with checkboxes -->
                             <label><input type="checkbox" name="category" value="cpu"> CPU</label>
                             <label><input type="checkbox" name="category" value="gpu"> GPU</label>
                             <label><input type="checkbox" name="category" value="ram"> RAM</label>
@@ -30,9 +36,11 @@
                             <label><input type="checkbox" name="category" value="peripheral"> Peripherals</label>
                         </div>
                     </div>
+                    
                     <div class="filter-group">
                         <h3>Brand</h3>
                         <div class="checkbox-group">
+                            <!-- Brand filters with checkboxes -->
                             <label><input type="checkbox" name="brand" value="intel"> Intel</label>
                             <label><input type="checkbox" name="brand" value="amd"> AMD</label>
                             <label><input type="checkbox" name="brand" value="nvidia"> NVIDIA</label>
@@ -40,20 +48,26 @@
                             <label><input type="checkbox" name="brand" value="asus"> ASUS</label>
                         </div>
                     </div>
+                    
                     <div class="filter-group">
                         <h3>Price Range</h3>
                         <div class="range-slider">
+                            <!-- Price range slider -->
                             <input type="range" id="price-range" name="price" min="0" max="2000" step="50" value="2000">
                             <span id="price-display">€2000</span>
                         </div>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    <!-- Button to apply filters -->
                 </form>
             </div>
+            
             <div class="catalog-main">
                 <div class="catalog-header">
                     <h2>All Products</h2>
                     <div class="sort-options">
+                        <!-- Dropdown for sorting products -->
                         <label for="sort-select">Sort by:</label>
                         <select id="sort-select">
                             <option value="popular">Most Popular</option>
@@ -63,8 +77,9 @@
                         </select>
                     </div>
                 </div>
+                
                 <div id="product-grid" class="product-grid">
-                    <!-- Product cards will be dynamically inserted here -->
+                    <!-- Product grid where product cards will be dynamically inserted -->
                     <div class="product-card">
                         <img src="https://via.placeholder.com/250" alt="Product Image">
                         <h3>Product Name</h3>
@@ -79,17 +94,22 @@
                         <p class="price">€150.00</p>
                         <button class="btn btn-outline">Add to Cart</button>
                     </div>
-                    <!-- More product cards -->
+                    <!-- Example product cards. More cards would be dynamically added -->
                 </div>
+                
                 <div class="pagination">
                     <button id="load-more" class="btn btn-secondary">Load More</button>
+                    <!-- Button to load more products -->
                 </div>
             </div>
         </div>
     </div>
 </section>
 {% endblock %}
+<!-- Main content block, includes the hero section, filters, product grid, and pagination -->
 
 {% block extra_js %}
 <script src="{{ url_for('static', filename='js/rig.js') }}"></script>
 {% endblock %}
+<!-- Includes additional JavaScript specific to this page -->
+
