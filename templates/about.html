@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}About Rigster{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rigstyle.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="about-hero hero">
+    <div class="container">
+        <h1>About Rigster</h1>
+        <p>Your trusted partner in custom PC building</p>
+    </div>
+</section>
+
+<section class="our-story">
+    <div class="container">
+        <h2>Our Story</h2>
+        <div class="story-content">
+            <div class="story-text">
+                <p>Founded in 2010, Rigster began as a small PC repair shop with a passion for building custom gaming rigs. Over the years, we've grown into a leading online retailer of PC components and custom-built systems, serving thousands of satisfied customers all over Ireland.</p>
+                <p>Our mission is to provide PC enthusiasts and gamers with high-quality components, expert advice, and unparalleled customer service. We believe that everyone deserves a PC that's tailored to their needs and budget.</p>
+            </div>
+            <div class="story-image">
+                <img src="{{ url_for('static', filename='images/founders.jpg') }}" alt="Rigster founders">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our-values">
+    <div class="container">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <i class="fas fa-star"></i>
+                <h3>Quality</h3>
+                <p>We source only the best components and rigorously test every product we sell.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-users"></i>
+                <h3>Customer Focus</h3>
+                <p>Our customers are at the heart of everything we do. We're committed to your satisfaction.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovation</h3>
+                <p>We stay ahead of the curve, always offering the latest in PC technology.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Integrity</h3>
+                <p>We believe in honest, transparent business practices and fair pricing.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="team">
+    <div class="container">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/theboss1.jpg') }}" alt="Saoirse">
+                <h3>Saoirse (The Boss)</h3>
+                <p>CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/operations.webp') }}" alt="Managerpic">
+                <h3>Some lady</h3>
+                <p>Head of Operations</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/employee1.webp') }}" alt="employeepic">
+                <h3>Some guy</h3>
+                <p>Lead Technician</p>
+            </div>
+            <div class="team-member">
+                <img src="{{ url_for('static', filename='images/employee2.webp') }}" alt="employeepic2">
+                <h3>Some other guy</h3>
+                <p>Customer Support Manager</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>"Rigster built me the perfect gaming PC. Their expertise and attention to detail are unmatched!"</p>
+                <cite>- Alex K., Professional Gamer</cite>
+            </div>
+            <div class="testimonial">
+                <p>"The customer service at Rigster is exceptional. They went above and beyond to help me choose the right components."</p>
+                <cite>- Emily R., Content Creator</cite>
+            </div>
+            <div class="testimonial">
+                <p>"I've been a loyal customer for years. Rigster always delivers quality products at competitive prices."</p>
+                <cite>- Mark S., IT Professional</cite>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/rig.js') }}"></script>
+{% endblock %}
