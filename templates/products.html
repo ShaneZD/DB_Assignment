@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Our Products - Rigster{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rigstyle.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="build-hero hero">
+    <div class="container">
+        <h1>Our Products</h1>
+        <p>Explore our wide range of high-quality components and peripherals</p>
+    </div>
+</section>
+
+<section class="product-catalog">
+    <div class="container">
+        <div class="catalog-content">
+            <div class="catalog-sidebar">
+                <h2>Filter Products</h2>
+                <form id="filter-form">
+                    <div class="filter-group">
+                        <h3>Category</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="category" value="cpu"> CPU</label>
+                            <label><input type="checkbox" name="category" value="gpu"> GPU</label>
+                            <label><input type="checkbox" name="category" value="ram"> RAM</label>
+                            <label><input type="checkbox" name="category" value="storage"> Storage</label>
+                            <label><input type="checkbox" name="category" value="psu"> Power Supply</label>
+                            <label><input type="checkbox" name="category" value="case"> Case</label>
+                            <label><input type="checkbox" name="category" value="peripheral"> Peripherals</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Brand</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="brand" value="intel"> Intel</label>
+                            <label><input type="checkbox" name="brand" value="amd"> AMD</label>
+                            <label><input type="checkbox" name="brand" value="nvidia"> NVIDIA</label>
+                            <label><input type="checkbox" name="brand" value="corsair"> Corsair</label>
+                            <label><input type="checkbox" name="brand" value="asus"> ASUS</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <div class="range-slider">
+                            <input type="range" id="price-range" name="price" min="0" max="2000" step="50" value="2000">
+                            <span id="price-display">€2000</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                </form>
+            </div>
+            <div class="catalog-main">
+                <div class="catalog-header">
+                    <h2>All Products</h2>
+                    <div class="sort-options">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select">
+                            <option value="popular">Most Popular</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest Arrivals</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="product-grid" class="product-grid">
+                    <!-- Product cards will be dynamically inserted here -->
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/250" alt="Product Image">
+                        <h3>Product Name</h3>
+                        <p>Product Description</p>
+                        <p class="price">€100.00</p>
+                        <button class="btn btn-outline">Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://via.placeholder.com/250" alt="Product Image">
+                        <h3>Product Name</h3>
+                        <p>Product Description</p>
+                        <p class="price">€150.00</p>
+                        <button class="btn btn-outline">Add to Cart</button>
+                    </div>
+                    <!-- More product cards -->
+                </div>
+                <div class="pagination">
+                    <button id="load-more" class="btn btn-secondary">Load More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/rig.js') }}"></script>
+{% endblock %}
