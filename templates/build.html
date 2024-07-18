@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block title %}Build Your Custom PC - Rigster{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rigstyle.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="build-hero hero">
+    <div class="container">
+        <h1>Build Your Custom PC</h1>
+        <p>Create your perfect rig with our interactive PC builder</p>
+    </div>
+</section>
+
+<section class="build-configurator">
+    <div class="container">
+        <div class="configurator-layout">
+            <div class="component-selection">
+                <h2>Choose Your Components</h2>
+                <div class="component-group">
+                    <label for="cpu">CPU:</label>
+                    <select id="cpu" class="component-select" data-component="cpu">
+                        <option value="">Select a CPU</option>
+                        <option value="299.99">Intel Core i5 - €299.99</option>
+                        <option value="399.99">Intel Core i7 - €399.99</option>
+                        <option value="279.99">AMD Ryzen 5 - €279.99</option>
+                        <option value="449.99">AMD Ryzen 7 - €449.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="gpu">GPU:</label>
+                    <select id="gpu" class="component-select" data-component="gpu">
+                        <option value="">Select a GPU</option>
+                        <option value="399.99">NVIDIA RTX 3060 - €399.99</option>
+                        <option value="599.99">NVIDIA RTX 3070 - €599.99</option>
+                        <option value="479.99">AMD RX 6700 XT - €479.99</option>
+                        <option value="649.99">AMD RX 6800 XT - €649.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="ram">RAM:</label>
+                    <select id="ram" class="component-select" data-component="ram">
+                        <option value="">Select RAM</option>
+                        <option value="89.99">Corsair 16GB DDR4 - €89.99</option>
+                        <option value="159.99">G.Skill 32GB DDR4 - €159.99</option>
+                        <option value="299.99">Crucial 64GB DDR4 - €299.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="psu">Power Supply:</label>
+                    <select id="psu" class="component-select" data-component="psu">
+                        <option value="">Select a Power Supply</option>
+                        <option value="89.99">EVGA 650W 80+ Gold - €89.99</option>
+                        <option value="119.99">Corsair 750W 80+ Platinum - €119.99</option>
+                        <option value="149.99">Seasonic 850W 80+ Titanium - €149.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="motherboard">Motherboard:</label>
+                    <select id="motherboard" class="component-select" data-component="motherboard">
+                        <option value="">Select a Motherboard</option>
+                        <option value="149.99">ASUS B550 - €149.99</option>
+                        <option value="229.99">MSI X570 - €229.99</option>
+                        <option value="279.99">Gigabyte Z590 - €279.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="case">Case:</label>
+                    <select id="case" class="component-select" data-component="case">
+                        <option value="">Select a Case</option>
+                        <option value="69.99">NZXT H510 - €69.99</option>
+                        <option value="99.99">Corsair 4000D - €99.99</option>
+                        <option value="149.99">Lian Li O11 Dynamic - €149.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="os">Operating System:</label>
+                    <select id="os" class="component-select" data-component="os">
+                        <option value="">Select an OS</option>
+                        <option value="109.99">Windows 10 Home - €109.99</option>
+                        <option value="139.99">Windows 11 Pro - €139.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="antivirus">Antivirus:</label>
+                    <select id="antivirus" class="component-select" data-component="antivirus">
+                        <option value="">Select Antivirus</option>
+                        <option value="39.99">Norton 360 - €39.99</option>
+                        <option value="49.99">Kaspersky Total Security - €49.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="keyboard">Keyboard:</label>
+                    <select id="keyboard" class="component-select" data-component="keyboard">
+                        <option value="">Select a Keyboard</option>
+                        <option value="129.99">Logitech G513 - €129.99</option>
+                        <option value="199.99">Corsair K95 RGB Platinum - €199.99</option>
+                    </select>
+                </div>
+                <div class="component-group">
+                    <label for="mouse">Mouse:</label>
+                    <select id="mouse" class="component-select" data-component="mouse">
+                        <option value="">Select a Mouse</option>
+                        <option value="79.99">Logitech G502 HERO - €79.99</option>
+                        <option value="69.99">Razer DeathAdder V2 - €69.99</option>
+                    </select>
+                </div>
+            </div>
+            <div class="build-summary">
+                <h2>Your Build</h2>
+                <div id="selected-components"></div>
+                <div id="total-price">Total: €0.00</div>
+                <button id="save-build" class="btn btn-primary">Save Build</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="build-features">
+    <div class="container">
+        <h2>Why Build with Rigster?</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-tools"></i>
+                <h3>Customization</h3>
+                <p>Tailor every aspect of your PC to your needs</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-euro-sign"></i>
+                <h3>Competitive Pricing</h3>
+                <p>Get the best components at unbeatable prices</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h3>Expert Support</h3>
+                <p>Our team is here to help you every step of the way</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Quality Guarantee</h3>
+                <p>All components are tested and guaranteed</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/rig.js') }}"></script>
+{% endblock %}
