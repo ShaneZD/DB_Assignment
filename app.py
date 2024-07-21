@@ -16,7 +16,7 @@ with app.app_context():
         db.session.add(Role(name='User'))
     db.session.commit()
     inspector = inspect(db.engine)
-    print("Tables created: ", inspector.get_table_names())  # Updated debug statement
+    print("Tables created: ", inspector.get_table_names())
 
 @app.route('/')
 def index():
@@ -25,7 +25,7 @@ def index():
 @app.route('/user_management')
 def user_management():
     user_data = User.query.all()
-    print("Users: ", user_data)  # Debug statement
+    print("Users: ", user_data)
     return render_template('user_management.html', users=user_data)
 
 @app.route('/user', methods=['GET'])
@@ -81,7 +81,7 @@ def user_insert():
     city = request.form['city']
     state = request.form['state']
     zip_code = request.form['zip_code']
-    print(f"Received data - Username: {username}, Email: {email}, Password: {password}")  # Debug statement
+    print(f"Received data - Username: {username}, Email: {email}, Password: {password}")
 
     if User.query.filter_by(username=username).first():
         flash('Username already exists. Please choose another one.')
@@ -150,5 +150,4 @@ def contact():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
-
+    app.run(host='0.0.0.0', port=port)
