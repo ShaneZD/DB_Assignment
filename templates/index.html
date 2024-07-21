@@ -1,130 +1,102 @@
 {% extends "base.html" %}
-
-{% block title %}Rigster - Custom PC Builds & Gaming Hardware{% endblock %}
+{% block title %}Contact Us - Rigster{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/rigstyle.css') }}">
+{% endblock %}
 
 {% block content %}
-<section class="hero">
+<section class="contact-hero hero">
     <div class="container">
-        <h1>Build Your Dream Gaming Rig</h1>
-        <p>Customize your perfect PC or shop top-tier gaming hardware</p>
-        <div class="hero">
-            <a href="{{ url_for('build') }}" class="btn btn-primary">Start Your Build</a>
-            <a href="{{ url_for('products') }}" class="btn btn-secondary">Shop Hardware</a>
-        </div>
+        <h1>Contact Us</h1>
+        <p>We're here to help with any questions or concerns</p>
     </div>
 </section>
 
-<section class="featured-products">
+<section class="contact-content">
     <div class="container">
-        <h2>Featured Products</h2>
-        <input type="text" id="product-search" placeholder="Search products..." class="search-input">
-        <div class="product-grid">
-            {% for product in featured_products %}
-            <div class="product-card">
-                <img src="{{ url_for('static', filename='images/products/' + product.image) }}" alt="{{ product.name }}">
-                <h3>{{ product.name }}</h3>
-                <p class="price">${{ product.price }}</p>
-                <a href="{{ url_for('product', product_id=product.id) }}" class="btn btn-outline">View Details</a>
+        <div class="contact-grid">
+            <div class="contact-form-container">
+                <h2>Get in Touch</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="support">Technical Support</option>
+                            <option value="sales">Sales Inquiry</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="8" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<section class="custom-builds">
-    <div class="container">
-        <h2>Custom PC Builds</h2>
-        <div class="build-options">
-            <div class="build-option">
-                <i class="fas fa-gamepad"></i>
-                <h3>Gaming PC</h3>
-                <p>Dominate the competition with our high-performance gaming rigs</p>
-                <a href="{{ url_for('build', category='gaming') }}" class="btn btn-primary">Build Now</a>
-            </div>
-            <div class="build-option">
-                <i class="fas fa-desktop"></i>
-                <h3>Workstation</h3>
-                <p>Powerful systems for content creation and professional work</p>
-                <a href="{{ url_for('build', category='workstation') }}" class="btn btn-primary">Build Now</a>
-            </div>
-            <div class="build-option">
-                <i class="fas fa-video"></i>
-                <h3>Streaming PC</h3>
-                <p>Optimized builds for smooth streaming and gaming</p>
-                <a href="{{ url_for('build', category='streaming') }}" class="btn btn-primary">Build Now</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="why-choose-us">
-    <div class="container">
-        <h2>Why Choose Rigster?</h2>
-        <div class="features-grid">
-            <div class="feature">
-                <i class="fas fa-tools"></i>
-                <h3>Custom Builds</h3>
-                <p>Design your perfect PC with our easy-to-use configurator</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-award"></i>
-                <h3>Quality Components</h3>
-                <p>We only stock the best brands and latest technology</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-headset"></i>
-                <h3>Expert Support</h3>
-                <p>Our team of tech enthusiasts is here to help 24/7</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-shipping-fast"></i>
-                <h3>Fast Shipping</h3>
-                <p>Quick and secure delivery on all orders</p>
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>1337 Tech Street, Dublin City Centre.</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>(01) 201-12345</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>support@rigster.ie</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="latest-tech">
+<section class="faq">
     <div class="container">
-        <h2>Latest Technology</h2>
-        <div class="tech-showcase">
-            <div class="tech-item">
-                <img src="{{ url_for('static', filename='images/rtx4090ti.jpg') }}" alt="Latest GPUs">
-                <h3>Next-Gen GPUs</h3>
-                <p>Experience unparalleled graphics with the latest NVIDIA and AMD cards</p>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>How long does shipping take?</h3>
+                <p>Shipping times vary depending on your location. Typically, orders are processed within 1-2 business days and shipped within 3-5 business days.</p>
             </div>
-            <div class="tech-item">
-                <img src="{{ url_for('static', filename='images/i11.jpg') }}" alt="Powerful CPUs">
-                <h3>Powerful CPUs</h3>
-                <p>Boost your system's performance with cutting-edge processors</p>
+            <div class="faq-item">
+                <h3>Do you offer international shipping?</h3>
+                <p>Yes, we offer international shipping to select countries. Shipping costs and times may vary.</p>
             </div>
-            <div class="tech-item">
-                <img src="{{ url_for('static', filename='images/cpucooler.jpg') }}" alt="Advanced Cooling">
-                <h3>Advanced Cooling</h3>
-                <p>Keep your system running cool and quiet with our cooling solutions</p>
+            <div class="faq-item">
+                <h3>What is your return policy?</h3>
+                <p>We offer a 30-day return policy for most items. Please check specific items for more detailed information.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do you offer technical support?</h3>
+                <p>Yes, our technical support team is available to assist you with any issues or questions regarding your purchase.</p>
             </div>
         </div>
     </div>
 </section>
+{% endblock %}
 
-<section class="testimonials">
-    <div class="container">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial-slider">
-            <div class="testimonial">
-                <p>"I bought my daughters first custom made PC and she absolutely loves it!"</p>
-                <cite>- Louise M.</cite>
-            </div>
-            <div class="testimonial">
-                <p>"The quality of components and the prices are unbeatable. I'll definitely be a returning customer."</p>
-                <cite>- Sarah L.</cite>
-            </div>
-            <div class="testimonial">
-                <p>"I bought a €4,000 PC to play an early 2000s click simulator because I couldn't turn away from the prices!"</p>
-                <cite>- Séan D.</cite>
-            </div>
-        </div>
-    </div>
-</section>
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/rig.js') }}"></script>
 {% endblock %}
