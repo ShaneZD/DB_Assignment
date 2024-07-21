@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Add User{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Create New User</h1>
+    <form action="{{ url_for('user_insert') }}" method="POST">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+
+        <h2>Address</h2>
+        <div class="form-group">
+            <label for="street">Street:</label>
+            <input type="text" id="street" name="street" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="zip_code">ZIP Code:</label>
+            <input type="text" id="zip_code" name="zip_code" class="form-control" required>
+        </div>
+
+        <h2>Roles</h2>
+        <div class="form-group">
+            {% for role in roles %}
+            <div class="form-check">
+                <input type="checkbox" id="role_{{ role.id }}" name="roles" value="{{ role.id }}" class="form-check-input">
+                <label for="role_{{ role.id }}" class="form-check-label">{{ role.name }}</label>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+{% endblock %}
