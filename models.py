@@ -1,5 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, String, ForeignKey
 from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
@@ -9,12 +8,12 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     password_hash = db.Column(db.Text, nullable=False)
     emails = db.relationship('Email', backref='user', cascade="all, delete-orphan", lazy=True)
-    roles = db.relationship('Role', secondary='user_roles')
+    roles = db.relationship('Role', secondary='user_roles', backref=db.backref('users', lazy='dynamic'))
     addresses = db.relationship('Address', backref='user', cascade="all, delete-orphan", lazy=True)
 
     @property
     def password(self):
-        raise AttributeError('Password attribute error')
+        raise AttributeError('Password is not a readable attribute')
 
     @password.setter
     def password(self, plain_text_password):
