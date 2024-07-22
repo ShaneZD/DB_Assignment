@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from sqlalchemy import inspect
 from config import Config
 from models import db, User, Email, Role, Address, UserRoles
-import os
 
 app = Flask(__name__, static_folder='static')
 app.config.from_object(Config)
